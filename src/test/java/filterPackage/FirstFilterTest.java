@@ -48,10 +48,10 @@ public class FirstFilterTest {
 		} else {
 			for (int i = 1; i < listOfString.length; i++) {
 				Actions action = new Actions(driver);
-				WebElement subMenuElement = driver.findElement(By
+				WebElement subFilterElement = driver.findElement(By
 						.xpath("//span[@class='filter-display-name' and contains(text(),'" + listOfString[i] + "')]"));
-				action.moveToElement(subMenuElement);
-				subMenuElement.click();
+				action.moveToElement(subFilterElement);
+				subFilterElement.click();
 			}
 		}
 	}
