@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -46,9 +47,11 @@ public class FirstFilterTest {
 			}
 		} else {
 			for (int i = 1; i < listOfString.length; i++) {
-				driver.findElement(By
-						.xpath("//span[@class='filter-display-name' and contains(text(),'" + listOfString[i] + "')]"))
-						.click();
+				Actions action = new Actions(driver);
+				WebElement subMenuElement = driver.findElement(By
+						.xpath("//span[@class='filter-display-name' and contains(text(),'" + listOfString[i] + "')]"));
+				action.moveToElement(subMenuElement);
+				subMenuElement.click();
 			}
 		}
 	}
